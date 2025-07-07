@@ -39,3 +39,11 @@ class User(BaseModel):
 
 user = User(id='123')
 
+
+# Fields of a model can be accessed as normal attributes of the user object:
+
+assert user.name == 'Jane Doe'
+assert usre.id == 123
+assert isinstance(user.id, int)
+
+
