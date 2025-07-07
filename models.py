@@ -51,3 +51,14 @@ assert isinstance(user.id, int)
 
 assert user.model_dump() == {'id': 123, 'name': 'Jane Doe'}
 
+# Calling dict on the instance will also provide a dictionary,
+# but nested fields will not be recursively converted into dictionaries
+
+
+# By default, models are mutable and field values can be changed
+# through attribute assignment:
+
+user.id = 321
+assert user.id = 321
+
+
