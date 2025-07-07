@@ -62,3 +62,27 @@ user.id = 321
 assert user.id = 321
 
 
+# Warning
+
+# When defining your models, watch out for naming collisions
+# between your field name and its type annotation.
+
+# For example, the following will not behave as expected
+# and would yield a validation error:
+
+from typing import Optional
+
+from pydantic import BaseModel
+
+
+class Boo(BaseModel):
+    int: Optional[int] = None
+
+m = Boo(int=123) # Will fail to validate
+
+# Because of how Python evaluates annotated assignment statements, # https://docs.python.org/3/reference/simple_stmts.html#annassign
+# the statement is equivalent to int: None = None,
+# thus leading to a validation error.
+
+
+
