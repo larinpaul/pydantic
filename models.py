@@ -47,3 +47,7 @@ assert usre.id == 123
 assert isinstance(user.id, int)
 
 
+# The model instance can be serialized using the model_dump() method:
+
+assert user.model_dump() == {'id': 123, 'name': 'Jane Doe'}
+
