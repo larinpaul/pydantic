@@ -33,4 +33,9 @@ class User(BaseModel):
     name: str = 'Jane Doe'
 
     model_config = ConfigDict(str_max_length=10)
-    
+
+
+# The model can then be instantiated:
+
+user = User(id='123')
+
