@@ -85,4 +85,26 @@ m = Boo(int=123) # Will fail to validate
 # thus leading to a validation error.
 
 
+# Model methods and properties
+
+# The example above only shows the tip fo the iceberg of what models can do.
+# Models possess the following method and attributes:
+
+# * model_validate(): Validates the given object against the Pydantic model. See Validating data. # https://docs.pydantic.dev/latest/concepts/models/#validating-data
+# * model_validate()json()
+# * model_construct()
+# * model_dump() # Returns a dictionary of the model's field and values. See Serialization
+# * model_dump_json()
+# * model_copy() # by default, returns a shallow copy
+# * model_json_schema()
+# * model_fields
+# * model_computed_fields
+# * model_extra
+# * model_fields_set
+# * model_parametrized_name()
+# * model_post_init()
+# * model_rebuild() # Rebuilds the model schema, which also supports building recursive generic models. See Rebuilding model schema.
+
+
+
 
