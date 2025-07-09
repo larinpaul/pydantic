@@ -105,6 +105,13 @@ m = Boo(int=123) # Will fail to validate
 # * model_post_init()
 # * model_rebuild() # Rebuilds the model schema, which also supports building recursive generic models. See Rebuilding model schema.
 
+# Note
+# See the API documentation of BaseModel // https://docs.pydantic.dev/latest/api/base_model/#pydantic.BaseModel
+# for the class definition including a full list of methods and attributes
 
+# Tip
+# See Changes to pydantic.BaseModel // https://docs.pydantic.dev/latest/migration/#changes-to-pydanticbasemodel
+# in the Migration Guide // https://docs.pydantic.dev/latest/migration/
+# for details on changes from Pydantic V1.
 
 
