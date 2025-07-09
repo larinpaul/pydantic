@@ -115,3 +115,17 @@ m = Boo(int=123) # Will fail to validate
 # for details on changes from Pydantic V1.
 
 
+# Data conversion
+
+# Pydantic may cast input data to force it to conform to model field types,
+# and in some cases this may result in a loss of information. For example:
+
+from pydantic import BaseModel
+
+class Model(BaseModel):
+        a: int
+        b: float
+        c: str
+
+print(Model(a=3.000, b='2.72', c=b'binary data').model_dump())
+#> {'a': 3, 'b': 2.72, 'c': 'binary data'}
