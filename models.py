@@ -129,3 +129,19 @@ class Model(BaseModel):
 
 print(Model(a=3.000, b='2.72', c=b'binary data').model_dump())
 #> {'a': 3, 'b': 2.72, 'c': 'binary data'}
+
+
+# ...
+
+# This is aso the case for collections.
+# In most cases, you shouldn't make use of abstract container classes
+# and just use a concrete type, such as list:
+
+from pydantic import BaseModel
+
+
+class Model(BaseModel):
+    items: list[int]
+
+print(Model(items=(1, 2, 3)))
+#> items=[1, 2, 3]
