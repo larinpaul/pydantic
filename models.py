@@ -145,3 +145,6 @@ class Model(BaseModel):
 
 print(Model(items=(1, 2, 3)))
 #> items=[1, 2, 3]
+
+# Besides, using these abstract types can also lead to poor validation performance, # https://docs.pydantic.dev/latest/concepts/performance/#sequence-vs-list-or-tuple-with-mapping-vs-dict
+# and in general using concrete container types will avoid unnecessary checks.
