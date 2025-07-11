@@ -148,3 +148,21 @@ print(Model(items=(1, 2, 3)))
 
 # Besides, using these abstract types can also lead to poor validation performance, # https://docs.pydantic.dev/latest/concepts/performance/#sequence-vs-list-or-tuple-with-mapping-vs-dict
 # and in general using concrete container types will avoid unnecessary checks.
+
+
+# Extra data
+
+# By default, Pydantic models won't error when you provide extra data,
+# and these values will simply be ignored:
+
+from pydantic import BaseModel
+
+
+class Model(BaseModel):
+    x: int
+
+m = Model(x=1, y='a')
+assert m.model_dump() == {'x': 1}
+
+
+
