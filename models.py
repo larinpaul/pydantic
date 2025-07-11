@@ -165,4 +165,18 @@ m = Model(x=1, y='a')
 assert m.model_dump() == {'x': 1}
 
 
+# The extra configuration value can be used to control this behavior:
+
+from pydantic import BaseModel, ConfigDict
+
+
+class Model(BaseModel):
+    x: int
+
+    model_config = ConfigDict(extra='allow')
+
+
+m = Model(x=1, y='a')
+assert m.model_dump() == {'x': 1, 'y': 'a'}
+assert m.__pydantic_extra__ == {'y': 'a'}
 
