@@ -188,4 +188,42 @@ assert m.__pydantic_extra__ == {'y': 'a'}
 
 # For more details, refer to the extra API documentation. # https://docs.pydantic.dev/latest/api/config/#pydantic.config.ConfigDict.extra
 
+# Nested models
+
+# More complex hierarchical data structues can be defined using models themselves
+# as types in annotations.
+
+# Python 3.9 and above
+
+from typing import Optional
+
+from pydantic import BaseModel
+
+
+class Foo(BaseModel):
+    count: int
+    size: Optional[float] = None
+
+class Bar(BaseModel):
+    apple: str = 'x'
+    banana: str = 'y'
+
+class Spam(BaseModel):
+    foo: Foo
+    bars: list[Bar]
+
+m = Spam(foo={'count': 4}, bars=[{'apple': 'x1'}, {'apple': 'x2'}])
+print(m)
+"""
+foo=Foo(count=4, size=None) bars=[Bar(apple='x1', Bar(apple='x2', banana='y'))]
+"""
+print(m.model_dump())
+"""
+    'foo': {'count': 4, 'size': None},
+    'bars': [{'apple': 'x1', 'banana': 'y'}, {'apple': 'x2', 'banana': 'y'}],
+"""
+
+# Self-referencing models are supported. 
+# For more details, see the documentation related to forward annotations. # https://docs.pydantic.dev/latest/concepts/forward_annotations/#self-referencing-or-recursive-models
+
 
