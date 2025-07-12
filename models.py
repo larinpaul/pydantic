@@ -180,3 +180,12 @@ m = Model(x=1, y='a')
 assert m.model_dump() == {'x': 1, 'y': 'a'}
 assert m.__pydantic_extra__ == {'y': 'a'}
 
+# The configuration can take three calues:
+# * 'ignore': Providing extra data is ignored (the default).
+# * 'forbig': Providing extra data is not permitted.
+# * 'allow': Provding extra data is allowed and stored in the __pidantic_extra_dictionary attributes.
+# The __pidantic_extra_ can explicityl be annotated to provide validation for extra fields
+
+# For more details, refer to the extra API documentation. # https://docs.pydantic.dev/latest/api/config/#pydantic.config.ConfigDict.extra
+
+
