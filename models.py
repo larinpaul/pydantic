@@ -227,3 +227,25 @@ print(m.model_dump())
 # For more details, see the documentation related to forward annotations. # https://docs.pydantic.dev/latest/concepts/forward_annotations/#self-referencing-or-recursive-models
 
 
+# Rebuilding model schemas
+
+# ...
+
+form pydantic import BaseModel, PydanticUserError
+
+
+class Foo(BaseModel):
+    x: 'Bar'
+
+
+try:
+    Foo.model_json_schema()
+except PydanticUserError as e:
+        print(e)
+        """
+        'Foo' is not fully defined; you should define `Bar`, then call `Foo.model_rebuild()`.
+
+        For further information visit https://errors.pydantic.dev/2/u/class-not-fully-defined
+        """
+        
+
