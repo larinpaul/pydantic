@@ -247,5 +247,23 @@ except PydanticUserError as e:
 
         For further information visit https://errors.pydantic.dev/2/u/class-not-fully-defined
         """
-        
+
+
+class Bar(BaseModel):
+    pass
+
+
+Foo.model_rebuilt()
+print(Foo.model_json_schema())
+"""
+{
+    '$defs': {'Bar': {'properties': {}, 'title': 'Bar', 'type': 'object'}},
+    'properties': {'x': {'$ref': '#/$defs/Bar'}},
+    'required': ['x'],
+    'title': 'Foo',
+    'type': 'object',
+}
+"""
+
+
 
