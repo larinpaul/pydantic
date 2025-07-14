@@ -266,4 +266,18 @@ print(Foo.model_json_schema())
 """
 
 
+# Arbitrary classinstances 
 
+# (Formerly known as "ORM Mode"/ from_orm). 
+
+# ...
+
+# The example here uses SQLAlchemy,
+# but the same approach should work for any ORM.
+
+from typing import Annotated
+
+from sqlalchemy import ARRAY, String
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+
+from pydantic import BaseModel, ConfigDict, StringConstraints
