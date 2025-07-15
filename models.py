@@ -281,3 +281,18 @@ from sqlalchemy import ARRAY, String
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 from pydantic import BaseModel, ConfigDict, StringConstraints
+
+
+class Base(DeclarativeBase):
+    pass
+
+
+class CompanyOrm(Base):
+    __tablename__ = 'companies'
+
+    if: Mapped[int] = mapped_column(primary_key=True, nullable=False)
+    public_key: Mapped[str] = mapped_column(
+        String(20), index=True, nullable=False, unique=True
+    )
+    domains: Mapped[list[str]] = mapped_column(ARRAY(String(25)))
+
