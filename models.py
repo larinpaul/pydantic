@@ -296,3 +296,13 @@ class CompanyOrm(Base):
     )
     domains: Mapped[list[str]] = mapped_column(ARRAY(String(25)))
 
+
+class CompanyModel(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    public_key: Annotated[str, StringConstraints(max_length=20)]
+    domains: list[Annotated[str, StringConstraints(max_length=255)]]
+
+
+
