@@ -305,4 +305,9 @@ class CompanyModel(BaseModel):
     domains: list[Annotated[str, StringConstraints(max_length=255)]]
 
 
+co_orm = CompanyOrm(
+    id=123,
+    public_key='foobar',
+    domains=['example.com', 'foobar.com'],
+)
 
