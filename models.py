@@ -310,4 +310,9 @@ co_orm = CompanyOrm(
     public_key='foobar',
     domains=['example.com', 'foobar.com'],
 )
+print(co_orm)
+#> <__main__.CompanyOrm object at 0x0123456789ab>
+co_model = CompanyModel.model_validate(co_orm)
+print(co_model)
+#> id=123 public_key='foobar' domains=['example.com', 'foobar.com']
 
