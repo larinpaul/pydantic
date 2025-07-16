@@ -339,3 +339,12 @@ class PersonCls:
         self.name = name
         self.age = age
         self.pets = pets
+        
+
+class Pet(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    name: str
+    species: str
+    
+
