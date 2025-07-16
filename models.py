@@ -316,3 +316,19 @@ co_model = CompanyModel.model_validate(co_orm)
 print(co_model)
 #> id=123 public_key='foobar' domains=['example.com', 'foobar.com']
 
+
+# Nested attributes
+
+# When using attributes to parse models,
+# model instances will be created from both top-lvel attributes
+# and deeper-nested attributes as appropriate.
+
+# Here is an example demonstrating the principle:
+
+from pydantic import BaseModel, ConfigDict
+
+
+class PetClt:
+    def __init__(self, *, name: str, species: str):
+            self.name = name
+            self.species = species
