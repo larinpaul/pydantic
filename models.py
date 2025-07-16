@@ -333,3 +333,9 @@ class PetClt:
             self.name = name
             self.species = species
 
+
+class PersonCls:
+    def __init__(self, *, name: str, age: float = None, pets: list[PetCls]):
+        self.name = name
+        self.age = age
+        self.pets = pets
