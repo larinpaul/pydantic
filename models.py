@@ -364,3 +364,11 @@ print(anna_model)
 """
 name='Anna' age = 20.0 pets=[Pet(name='Bones', species='dog'), Pet(name='Orion', species='cat')]
 """
+
+
+# Error handling
+# ...
+
+from pydantic import BaseModel, ValidationError
+
+
