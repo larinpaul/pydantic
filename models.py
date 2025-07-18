@@ -391,3 +391,17 @@ except ValidationError as e:
     a_float
         Input should be a valid number, unable to parse string as a number [type=float_parsing, input_value='not a float', input_type=str]    
     """
+
+
+# Validating data
+
+# Pydantic provides three methods on models classes for parsing data:
+
+# * model_validate()
+
+# * model_validate_json()
+
+# * model_validate_strings()
+
+
+
