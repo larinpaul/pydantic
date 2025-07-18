@@ -404,4 +404,12 @@ except ValidationError as e:
 # * model_validate_strings()
 
 
+# Python 3.9 and above
+
+from datetime import datetime
+from typing import Optional
+
+from pydantic import BaseModel, ValidationError
+
+
 
