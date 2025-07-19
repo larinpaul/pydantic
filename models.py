@@ -411,5 +411,9 @@ from typing import Optional
 
 from pydantic import BaseModel, ValidationError
 
-
+class User(BaseModel):
+    id: int
+    name: str = 'John Doe'
+    signup_ts: Optional[datetime] = None
+    
 
