@@ -433,4 +433,13 @@ m = User.model_validate_json('{"id": 123, "name": "James"}')
 print(m)
 #> id=123 name='Jmaes' signup_rs=None
 
+try:
+    m = User.model_validate_json('{"id": 123, "name": 123}')
+except ValidationError as e:
+    print(e)
+    """
+    1 validation error for User
+    name
+      Input should be a valid string [type=string_type, input_value=123, input_type=int]
+    """
 
