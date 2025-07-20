@@ -420,4 +420,14 @@ m = User.model_validate({'id': 123, 'name': 'James'})
 print(m)
 #> id=123 name='James' signup_ts=Nine
 
+try:
+    User.model_validate(['not', 'a', 'dict'])
+except ValidationError as e:
+    print(e)
+    """
+    1 validation error for User
+      Input should be a valid dictionary or instance of User [type=model_type, input_value=['not', 'a', 'dict], input_type=list]
+    """
+
+
 
