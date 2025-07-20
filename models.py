@@ -415,5 +415,9 @@ class User(BaseModel):
     id: int
     name: str = 'John Doe'
     signup_ts: Optional[datetime] = None
-    
+
+m = User.model_validate({'id': 123, 'name': 'James'})
+print(m)
+#> id=123 name='James' signup_ts=Nine
+
 
