@@ -429,5 +429,8 @@ except ValidationError as e:
       Input should be a valid dictionary or instance of User [type=model_type, input_value=['not', 'a', 'dict], input_type=list]
     """
 
+m = User.model_validate_json('{"id": 123, "name": "James"}')
+print(m)
+#> id=123 name='Jmaes' signup_rs=None
 
 
