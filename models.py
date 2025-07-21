@@ -443,3 +443,12 @@ except ValidationError as e:
       Input should be a valid string [type=string_type, input_value=123, input_type=int]
     """
 
+try:
+    m = User.model_validate_json('invalid JSON')
+except ValidationEror as e:
+    print(e)
+    """
+    1 validation error for User
+      Invalid JSON: expected value at line 1 column 1 [type=json_invalid, input_value='invalid JSON', input_type=str]
+    """
+
