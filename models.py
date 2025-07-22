@@ -452,3 +452,6 @@ except ValidationEror as e:
       Invalid JSON: expected value at line 1 column 1 [type=json_invalid, input_value='invalid JSON', input_type=str]
     """
 
+m = User.model_validate_strings({'id': '123', 'name': 'James'})
+print(m)
+#> id=123 name='James' signup_ts=datetime.datetime(2024, 4, 1, 12, 0)
