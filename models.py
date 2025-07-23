@@ -455,3 +455,16 @@ except ValidationEror as e:
 m = User.model_validate_strings({'id': '123', 'name': 'James'})
 print(m)
 #> id=123 name='James' signup_ts=datetime.datetime(2024, 4, 1, 12, 0)
+
+try:
+    m = User.model_validate_string(
+        {'id': '123', 'name': 'James', 'signup_ts': '2024-04-01'}, strict=True
+    )
+except ValidationError as e:
+    print(e)
+    """
+    1 validation error for User
+    signup_ts
+      Input should be a valid datetime, invalid datetime separator, expected `T`, 't', `_` or space [type=datetime_parsing, input_value='2024-04-01', input_type=str]
+    """
+
