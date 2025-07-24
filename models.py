@@ -467,4 +467,26 @@ except ValidationError as e:
     signup_ts
       Input should be a valid datetime, invalid datetime separator, expected `T`, 't', `_` or space [type=datetime_parsing, input_value='2024-04-01', input_type=str]
     """
+`
+
+# NEVER # revalidate_instances='never'
+
+from pydantic import BaseModel
+
+
+class Model(BaseModel):
+    a: int
+
+m = Model(a=0)
+# note: setting `validate_assignment` to `True` in the config can prevent this kind of misbehavior
+m.a = 'not an int'
+
+# doesn't raise a validation error even though m is invalid
+m2 = Model.model_validate(m)
+
+
+
+
+
+
 
