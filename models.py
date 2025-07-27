@@ -510,3 +510,14 @@ except ValidationError as e:
     """
 
 
+# Generic models
+
+# Pydantic supports the cration of generic models to make it easier to reuse a
+# common model structure. Both the new type parameter syntax (introduced 
+# by PEOP 695 in Python 3.12) and the old syntax are supported
+# (refer to the Python documentation for more details).
+
+
+
+
+
