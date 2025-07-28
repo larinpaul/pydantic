@@ -590,3 +590,32 @@ except ValidationError as e:
     data
       Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='value', input_type='str]
     """
+
+
+# ...
+
+# To inherit from a generic model and preserve the fact that it is generic,
+# the subclass must also inherit from Generic:
+
+from typing import Generic, TypeVar`
+
+from pydantic import BaseModel
+
+TypeX = TypeVar('TypeX')
+
+
+class BaseClass(BaseModel, Generic[TypeX]):
+    X: TypeX
+
+
+class ChildClass(BaseClass[TypeX], Generic[TypeX]):
+    pass
+
+
+# Parametrize `TypeX` with `int`:
+print(ChildClass[int](X=1))
+#> X=1
+
+
+
+
